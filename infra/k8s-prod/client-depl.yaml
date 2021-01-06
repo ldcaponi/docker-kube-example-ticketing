@@ -15,6 +15,9 @@ spec:
       containers:
         - name: client
           image: ldcaponi/client
+          env:
+            - name: BASE_URL
+              value: "http://www.dailyworkoutpro.com"
 ---
 apiVersion: v1
 kind: Service

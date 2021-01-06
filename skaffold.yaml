@@ -20,7 +20,7 @@ build:
     - image: ldcaponi/client
       context: client
       docker:
-        dockerfile: Dockerfile
+        dockerfile: Dockerfile.local
       sync:
         manual:
           - src: "**/*.js"
