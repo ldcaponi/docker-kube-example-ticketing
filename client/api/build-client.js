@@ -4,8 +4,7 @@ export default function buildApiClient({ headers } = {}) {
   if (typeof window === "undefined") {
     // on server
     return axios.create({
-      baseURL:
-        "http://ingress-nginx-controller.ingress-nginx.svc.cluster.local",
+      baseURL: "http://www.dailyworkoutpro.com",
       headers,
     });
   }
