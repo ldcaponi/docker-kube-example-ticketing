@@ -1,10 +1,10 @@
 FROM node:alpine
 
-ENV NODE_ENV=production
+ENV NODE_ENV production
 
 WORKDIR /app
 COPY package.json .
-RUN npm install
+RUN npm install --no-optional
 COPY . .
 RUN npm run build
 
