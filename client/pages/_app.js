@@ -1,16 +1,18 @@
-import "bootstrap/dist/css/bootstrap.css";
+import { ChakraProvider, Container } from "@chakra-ui/react";
 import buildApiClient from "../api/build-client";
 
 import Header from "../components/header";
 
 function MyApp({ Component, pageProps, currentUser }) {
   return (
-    <div>
-      <Header currentUser={currentUser} />
-      <div className="container">
-        <Component {...pageProps} currentUser={currentUser} />
+    <ChakraProvider>
+      <div>
+        <Header currentUser={currentUser} />
+        <Container className="container">
+          <Component {...pageProps} currentUser={currentUser} />
+        </Container>
       </div>
-    </div>
+    </ChakraProvider>
   );
 }
 

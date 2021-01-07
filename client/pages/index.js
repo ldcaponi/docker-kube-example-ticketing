@@ -1,32 +1,42 @@
 import Link from "next/link";
 import React from "react";
+import {
+  Table,
+  Thead,
+  Tbody,
+  Tr,
+  Th,
+  Td,
+  Heading,
+  Link as ChakraLink,
+} from "@chakra-ui/react";
 
 function HomePage({ currentUser, tickets }) {
   return (
     <div>
-      <h1>Tickets</h1>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>Title</th>
-            <th>Price</th>
-            <th>View</th>
-          </tr>
-        </thead>
-        <tbody>
+      <Heading>Tickets</Heading>
+      <Table variant="simple">
+        <Thead>
+          <Tr>
+            <Th>Title</Th>
+            <Th>Price</Th>
+            <Th>View</Th>
+          </Tr>
+        </Thead>
+        <Tbody>
           {tickets.map((t) => (
-            <tr key={t.id}>
-              <td>{t.title}</td>
-              <td>{t.price}</td>
-              <td>
+            <Tr key={t.id}>
+              <Td>{t.title}</Td>
+              <Td>{t.price}</Td>
+              <Td>
                 <Link href="/tickets/[ticketId]" as={`/tickets/${t.id}`}>
-                  <a>View</a>
+                  <ChakraLink>View</ChakraLink>
                 </Link>
-              </td>
-            </tr>
+              </Td>
+            </Tr>
           ))}
-        </tbody>
-      </table>
+        </Tbody>
+      </Table>
     </div>
   );
 }
