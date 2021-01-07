@@ -1,6 +1,14 @@
 import React, { useState } from "react";
 import useRequest from "../../hooks/use-request";
 import Router from "next/router";
+import {
+  FormControl,
+  FormLabel,
+  Input,
+  Button,
+  Heading,
+  Box,
+} from "@chakra-ui/react";
 
 const NewTicket = () => {
   const [title, setTitle] = useState("");
@@ -26,33 +34,32 @@ const NewTicket = () => {
   });
   return (
     <div>
-      <h1>Create a Ticket</h1>
-      <form
+      <Heading>Create a Ticket</Heading>
+      <Box
+        as="form"
+        py={3}
         onSubmit={(e) => {
           e.preventDefault();
           doRequest();
         }}
       >
-        <div className="form-group">
-          <label>Title</label>
-          <input
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            className="form-control"
-          />
-        </div>
-        <div className="form-group">
-          <label>Price</label>
-          <input
+        <FormControl id="title">
+          <FormLabel>Title</FormLabel>
+          <Input value={title} onChange={(e) => setTitle(e.target.value)} />
+        </FormControl>
+        <FormControl mb="3" id="price">
+          <FormLabel>Price</FormLabel>
+          <Input
             value={price}
             onBlur={onBlur}
             onChange={(e) => setPrice(e.target.value)}
-            className="form-control"
           />
-        </div>
+        </FormControl>
         {errors}
-        <button className="btn btn-primary">Submit</button>
-      </form>
+        <Button type="submit" colorScheme="blue">
+          Submit
+        </Button>
+      </Box>
     </div>
   );
 };

@@ -1,5 +1,6 @@
 import React from "react";
 import Link from "next/link";
+import { Flex, Box, Link as ChakraLink } from "@chakra-ui/react";
 
 export default function Header({ currentUser }) {
   const links = [
@@ -11,22 +12,34 @@ export default function Header({ currentUser }) {
   ]
     .filter((i) => i)
     .map(({ label, href }) => (
-      <li className="nav-item" key={label}>
+      <Box ml={2} key={label}>
         <Link href={href}>
-          <a className="nav-link">{label}</a>
+          <ChakraLink fontSize="xl" color="teal.500">
+            {label}
+          </ChakraLink>
         </Link>
-      </li>
+      </Box>
     ));
 
   return (
-    <nav className="navbar navbar-light bg-light">
-      <Link href="/">
-        <a className="navbar-brand">Git Tix</a>
-      </Link>
+    <Flex
+      px={2}
+      alignItems="center"
+      h="60px"
+      as="nav"
+      className="navbar navbar-light bg-light"
+    >
+      <Box>
+        <Link href="/">
+          <ChakraLink fontSize="xl" className="navbar-brand">
+            Git Tix
+          </ChakraLink>
+        </Link>
+      </Box>
 
-      <div className="d-flex justify-content-end">
-        <ul className=" nav d-flex align-items-center">{links}</ul>
-      </div>
-    </nav>
+      <Flex as={Box} ml="auto">
+        {links}
+      </Flex>
+    </Flex>
   );
 }

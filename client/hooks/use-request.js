@@ -1,5 +1,13 @@
 import axios from "axios";
 import { useState } from "react";
+import {
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  Flex,
+  Box,
+  AlertDescription,
+} from "@chakra-ui/react";
 
 export default function useRequest({ url, method, body, onSuccess }) {
   const [errors, setErrors] = useState(null);
@@ -17,14 +25,18 @@ export default function useRequest({ url, method, body, onSuccess }) {
     } catch (e) {
       console.error(e);
       setErrors(
-        <div className="alert alert-danger">
-          <h4>Oops...</h4>
-          <ul className="my-0">
-            {e.response.data.errors.map((err) => (
-              <li key={err.message}>{err.message}</li>
-            ))}
-          </ul>
-        </div>
+        <Alert my={3} status="error">
+          <AlertIcon />
+
+          <div>
+            <AlertTitle mr={2}>Oops!</AlertTitle>
+            <Box as="ul" pl={5}>
+              {e.response.data.errors.map((err) => (
+                <li key={err.message}>{err.message}</li>
+              ))}
+            </Box>
+          </div>
+        </Alert>
       );
     }
   };
