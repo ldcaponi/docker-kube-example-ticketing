@@ -18,8 +18,6 @@ spec:
           env:
             - name: BASE_URL
               value: "http://www.dailyworkoutpro.com"
-            - name: ANTOHER_VAR
-              value: "http://www.dailyworkoutpro.com"
 ---
 apiVersion: v1
 kind: Service
