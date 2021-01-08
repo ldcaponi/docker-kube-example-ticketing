@@ -16,7 +16,9 @@
     "setupFilesAfterEnv": [
       "./src/test/setup.ts"
     ],
-    "testMatch": [ "**/?(*.)+(spec|test).[t]s?(x)" ]
+    "testMatch": [
+      "**/?(*.)+(spec|test).[t]s?(x)"
+    ]
   },
   "keywords": [],
   "author": "",
@@ -26,6 +28,7 @@
     "@types/cookie-session": "^2.0.42",
     "@types/express": "^4.17.9",
     "@types/jsonwebtoken": "^8.5.0",
+    "@types/mongoose": "^5.10.3",
     "cookie-session": "^1.4.0",
     "express": "^4.17.1",
     "express-async-errors": "^3.1.1",
