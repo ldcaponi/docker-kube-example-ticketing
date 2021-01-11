@@ -4,6 +4,8 @@ Microservices application using Node.js, Express, Typescript, Next.js, NATS Stre
 
 ## Getting Started Locally
 
+> Note: This project relies on a common NPM module with project-specific code (event definitions, middlewares, etc). Found [here](https://github.com/ldcaponi/ticketing-common-module). The steps below will run locally just fine, but any new project will have to clone and implement its own project-specific common module.
+
 1. Install Docker/Kubernetes
 2. Install [Skaffold](https://skaffold.dev/)
 3. Deploy ingress-nginx load balancer to local kubernetes cluster. Instructions [here](https://kubernetes.github.io/ingress-nginx/deploy/)
