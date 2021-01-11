@@ -16,6 +16,16 @@ spec:
         - name: payments
           image: ldcaponi/payments
           env:
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-password
+                  key: MONGO_PASSWORD
+            - name: MONGO_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-user
+                  key: MONGO_USER
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
@@ -27,7 +37,7 @@ spec:
                   name: stripe-secret
                   key: STRIPE_KEY
             - name: MONGO_URI
-              value: "mongodb://payments-mongo-srv:27017/payments"
+              value: "mongodb+srv://cluster0.q8y90.mongodb.net/payments?retryWrites=true&w=majority"
             - name: NATS_URL
               value: "http://nats-srv:4222"
             - name: NATS_CLUSTER_ID

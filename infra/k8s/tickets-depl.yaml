@@ -16,13 +16,23 @@ spec:
         - name: tickets
           image: ldcaponi/tickets
           env:
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-password
+                  key: MONGO_PASSWORD
+            - name: MONGO_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-user
+                  key: MONGO_USER
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
             - name: MONGO_URI
-              value: "mongodb://tickets-mongo-srv:27017/tickets"
+              value: "mongodb+srv://cluster0.q8y90.mongodb.net/tickets?retryWrites=true&w=majority"
             - name: NATS_URL
               value: "http://nats-srv:4222"
             - name: NATS_CLUSTER_ID

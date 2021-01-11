@@ -16,13 +16,23 @@ spec:
         - name: auth
           image: ldcaponi/auth
           env:
+            - name: MONGO_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-password
+                  key: MONGO_PASSWORD
+            - name: MONGO_USER
+              valueFrom:
+                secretKeyRef:
+                  name: mongo-user
+                  key: MONGO_USER
             - name: JWT_KEY
               valueFrom:
                 secretKeyRef:
                   name: jwt-secret
                   key: JWT_KEY
             - name: MONGO_URI
-              value: "mongodb://auth-mongo-srv:27017/auth"
+              value: "mongodb+srv://cluster0.q8y90.mongodb.net/auth?retryWrites=true&w=majority"
 ---
 apiVersion: v1
 kind: Service
