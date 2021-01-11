@@ -44,8 +44,6 @@ const start = async () => {
       useNewUrlParser: true,
       useUnifiedTopology: true,
       useCreateIndex: true,
-      user: process.env.MONGO_USER,
-      pass: process.env.MONGO_PASSWORD,
     });
     console.log("Connected to mongodb");
 
